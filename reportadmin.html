@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel</title>
+<style>
+body { font-family: Arial; padding:20px; }
+input, button { padding:8px; margin:5px; }
+table { width:100%; border-collapse: collapse; }
+th, td { border:1px solid #ccc; padding:8px; text-align:center; }
+button { background:red; color:white; border:none; cursor:pointer; }
+</style>
+</head>
+<body>
+
+<h2>Admin Login</h2>
+<input type="password" id="password" placeholder="Enter Password">
+<button onclick="loadData()">Login</button>
+
+<div id="report"></div>
+
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbxWrKBy6tLAFjWhoH_6lAXLjbBEeJ31lE_Nvnd_gH3lD3hvgKpATyzVjRDYQom0V3hjjw/exec";
+
+function loadData(){
+const pass = document.getElementById("password").value;
+
+fetch(scriptURL + "?password=" + pass)
+.then(res => res.json())
+.then(data => {
+
+if(data.error){
+alert("Wrong Password");
+return;
+}
+
+let html = "<h3>Bookings</h3><table><tr><th>ID</th><th>Start</th><th>End</th><th>Date</th><th>Phone</th><th>Action</th></tr>";
+
+data.forEach(row => {
+html += `<tr>
+<td>${row[0]}</td>
+<td>${row[1]}</td>
+<td>${row[2]}</td>
+<td>${row[3]}</td>
+<td>${row[4]}</td>
+<td><button onclick="deleteBooking('${row[0]}')">Delete</button></td>
+</tr>`;
+});
+
+html += "</table>";
+document.getElementById("report").innerHTML = html;
+
+});
+}
+
+function deleteBooking(id){
+const pass = document.getElementById("password").value;
+
+fetch(scriptURL + "?action=delete&id=" + id + "&password=" + pass)
+.then(res => res.json())
+.then(() => {
+loadData();
+});
+}
+</script>
+
+</body>
+</html>

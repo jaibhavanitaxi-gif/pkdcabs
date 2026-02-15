@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taxi Booking</title>
+<style>
+body { font-family: Arial; padding:20px; max-width:500px; margin:auto; }
+input, button { width:100%; padding:10px; margin:5px 0; }
+button { background:black; color:white; border:none; }
+</style>
+</head>
+<body>
+
+<h2>Book Taxi</h2>
+
+<form id="bookingForm">
+<input type="text" id="start" placeholder="Start Point" required>
+<input type="text" id="end" placeholder="End Point" required>
+<input type="date" id="date" required>
+<input type="text" id="phone" placeholder="Phone Number" required>
+<button type="submit">Book Now</button>
+</form>
+
+<p id="message"></p>
+
+<script>
+
+const scriptURL = "https://script.google.com/macros/s/AKfycbxWrKBy6tLAFjWhoH_6lAXLjbBEeJ31lE_Nvnd_gH3lD3hvgKpATyzVjRDYQom0V3hjjw/exec";
+
+
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+e.preventDefault();
+
+const data = {
+start: start.value,
+end: end.value,
+date: date.value,
+phone: phone.value
+};
+
+fetch(scriptURL, {
+method:"POST",
+body: JSON.stringify(data)
+})
+.then(res => res.json())
+.then(() => {
+message.innerText = "Booking Submitted Successfully!";
+bookingForm.reset();
+});
+});
+</script>
+
+</body>
+</html>
