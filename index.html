@@ -1116,32 +1116,187 @@
     }
     .lang-option.active .lang-check { display: inline; }
 
+    /* ---- HAMBURGER MENU ---- */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      z-index: 201;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2.5px;
+      background: var(--white);
+      border-radius: 2px;
+      margin: 5px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
     /* ---- RESPONSIVE ---- */
     @media (max-width: 900px) {
       .hero {
         flex-direction: column;
         text-align: center;
-        padding: 60px 5% 40px;
+        padding: 50px 5% 36px;
+        min-height: auto;
+        gap: 36px;
       }
-      .hero p { margin: 0 auto 32px; }
-      .hero-stats { justify-content: center; }
+      .hero p { margin: 0 auto 28px; max-width: 100%; }
+      .hero-stats { justify-content: center; gap: 28px; }
       .hero-form { flex: none; width: 100%; max-width: 440px; }
       .steps { flex-direction: column; gap: 24px; }
       .steps::before { display: none; }
       .contact-wrapper { flex-direction: column; }
-      .contact-map { min-height: 240px; }
+      .contact-map { min-height: 220px; }
       .contact-details { flex: none; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .section-header h2 { font-size: 26px; }
+      .section-header p { font-size: 14px; }
+      .features { padding: 50px 5%; }
+      .routes-section { padding: 50px 5%; }
+      .emergency-banner { padding: 40px 5%; }
+      .emergency-call-btn { font-size: 17px; padding: 14px 28px; }
+      .emergency-services { gap: 10px; }
+      .emergency-tag { font-size: 12px; padding: 6px 14px; }
+      .cta-section h2 { font-size: 24px; }
+      .faq-section { padding: 50px 5%; }
+      .seo-content { padding: 40px 5%; }
     }
+
+    @media (max-width: 768px) {
+      .hamburger { display: block; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--darker);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        z-index: 200;
+        padding: 80px 20px 40px;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-links li { width: 100%; text-align: center; }
+      .nav-links a {
+        display: block;
+        padding: 16px 0;
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--white);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .nav-links a:hover { color: var(--yellow); }
+      .nav-cta { display: none; }
+      .lang-switcher { margin-left: 0; margin-right: 8px; }
+    }
+
     @media (max-width: 600px) {
-      .navbar { padding: 12px 4%; }
-      .nav-links { display: none; }
-      .hero-form { padding: 28px 20px; }
+      .navbar { padding: 10px 4%; }
+      .logo-text { font-size: 18px; }
+      .logo-icon { width: 34px; height: 34px; font-size: 17px; }
+      .hero {
+        padding: 36px 5% 28px;
+        gap: 28px;
+      }
+      .hero h1 { font-size: clamp(26px, 7vw, 36px); letter-spacing: -0.5px; }
+      .hero p { font-size: 15px; line-height: 1.6; }
+      .hero-badge { font-size: 12px; padding: 5px 12px; margin-bottom: 14px; }
+      .hero-stats { gap: 20px; flex-wrap: wrap; }
+      .stat h3 { font-size: 22px; }
+      .stat p { font-size: 12px; }
+      .hero-form {
+        padding: 24px 18px;
+        border-radius: 16px;
+        max-width: 100%;
+      }
+      .hero-form h2 { font-size: 19px; }
+      .hero-form .form-sub { font-size: 13px; margin-bottom: 18px; }
       .form-row { flex-direction: column; gap: 0; }
-      .hero-stats { gap: 24px; }
-      .routes-grid { grid-template-columns: 1fr; }
-      .footer { flex-direction: column; text-align: center; }
-      .contact-details { padding: 28px 20px; }
+      .form-group input { padding: 11px 12px; font-size: 15px; }
+      .form-group label { font-size: 12px; }
+      .btn-book { padding: 13px; font-size: 15px; }
+
+      .features { padding: 40px 4%; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .feature-card { padding: 20px 16px; }
+      .feature-icon { width: 44px; height: 44px; font-size: 20px; margin-bottom: 12px; }
+      .feature-card h3 { font-size: 14px; margin-bottom: 4px; }
+      .feature-card p { font-size: 12px; line-height: 1.5; }
+
+      .routes-section { padding: 40px 4%; }
+      .routes-grid { grid-template-columns: 1fr; gap: 14px; }
+      .route-card { padding: 18px; }
+      .route-card h3 { font-size: 15px; }
+      .route-card .route-meta { font-size: 12px; }
+      .route-card .route-cta { font-size: 12px; padding: 5px 12px; }
+
+      .how-it-works { padding: 40px 4%; }
+      .step-number { width: 46px; height: 46px; font-size: 18px; }
+      .step h3 { font-size: 15px; }
+      .step p { font-size: 12px; }
+
+      .emergency-banner { padding: 32px 4%; }
+      .emergency-icon { font-size: 36px; }
+      .emergency-banner h2 { font-size: clamp(20px, 5vw, 28px); }
+      .emergency-banner p { font-size: 14px; margin-bottom: 18px; }
+      .emergency-call-btn { font-size: 16px; padding: 13px 24px; border-radius: 10px; }
+      .emergency-services { gap: 8px; margin-top: 20px; }
+      .emergency-tag { font-size: 11px; padding: 5px 12px; }
+
+      .contact-section { padding: 40px 4%; }
+      .contact-map { min-height: 200px; }
+      .contact-details { padding: 24px 18px; }
+      .contact-details h2 { font-size: 19px; }
       .contact-btns { flex-direction: column; }
+      .contact-btn { justify-content: center; padding: 12px 16px; font-size: 14px; }
+
+      .faq-section { padding: 40px 4%; }
+      .faq-question { padding: 15px 16px; font-size: 14px; gap: 8px; }
+      .faq-answer-inner { padding: 0 16px 14px; font-size: 13px; }
+
+      .cta-section { padding: 40px 4%; }
+      .cta-section h2 { font-size: 22px; }
+      .cta-section p { font-size: 14px; margin-bottom: 20px; }
+      .cta-btn { padding: 13px 32px; font-size: 15px; }
+
+      .seo-content { padding: 32px 4%; }
+      .seo-content h2 { font-size: 20px; }
+      .seo-content p { font-size: 13px; }
+
+      .footer { flex-direction: column; text-align: center; padding: 24px 4%; gap: 12px; }
+      .footer p { font-size: 12px; }
+      .footer-links { gap: 16px; }
+      .footer-links a { font-size: 12px; }
+
+      .whatsapp-float { width: 54px; height: 54px; bottom: 18px; right: 16px; }
+      .whatsapp-float svg { width: 28px; height: 28px; }
+      .whatsapp-label { bottom: 78px; right: 14px; font-size: 11px; padding: 5px 10px; }
+    }
+
+    @media (max-width: 380px) {
+      .hero h1 { font-size: 24px; }
+      .hero-stats { gap: 16px; }
+      .stat h3 { font-size: 20px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .feature-card { padding: 22px 18px; }
+      .emergency-call-btn { font-size: 14px; padding: 12px 20px; }
+      .qc-modal { padding: 28px 18px 22px; }
+      .qc-title { font-size: 18px; }
+      .qc-subtitle { font-size: 12px; }
+      .qc-btn { font-size: 14px; padding: 13px; }
     }
 
     /* ===== QUICK CONTACT POPUP ===== */
@@ -1216,7 +1371,7 @@
       <div class="logo-icon">&#128662;</div>
       <div class="logo-text">PKD<span>Cabs</span></div>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="towing.html" data-i18n="nav_towing" style="color:var(--yellow)">Towing</a></li>
       <li><a href="#routes" data-i18n="nav_routes">Routes</a></li>
       <li><a href="#features" data-i18n="nav_why">Why Us</a></li>
@@ -1249,6 +1404,9 @@
         </button>
       </div>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- HERO -->
@@ -2008,6 +2166,26 @@
         this.setAttribute('aria-expanded', !isOpen);
       });
     });
+
+    // ========== HAMBURGER MENU ==========
+    (function() {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('open');
+          document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+        });
+        navLinks.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('open');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+    })();
 
     // ========== SMOOTH SCROLL ==========
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
