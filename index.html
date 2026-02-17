@@ -2197,19 +2197,6 @@
         .then(() => {
           msg.textContent = T[lang].msg_success;
           msg.className = "form-message success";
-
-          var waText = encodeURIComponent(
-            "Hi, I just booked a taxi on PKD Cabs.\n\n" +
-            "Pickup: " + data.start + "\n" +
-            "Drop: " + data.end + "\n" +
-            "Date: " + data.date + "\n" +
-            "Phone: " + data.phone + "\n\n" +
-            "Please confirm my booking. Thank you!"
-          );
-          setTimeout(function() {
-            window.open("https://wa.me/917744046791?text=" + waText, "_blank");
-          }, 1500);
-
           document.getElementById("bookingForm").reset();
           document.getElementById('date').value = today;
         })
