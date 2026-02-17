@@ -996,20 +996,6 @@
         .then(function() {
           msg.textContent = 'Booking submitted! We\'ll contact you shortly to confirm.';
           msg.className = 'form-message success';
-
-          var waText = encodeURIComponent(
-            'Hi, I just booked a Tipeshwar taxi on PKD Cabs.\n\n' +
-            'Pickup: ' + data.start + '\n' +
-            'Gate: ' + gateValue + '\n' +
-            'Date: ' + data.date + '\n' +
-            'Passengers: ' + data.passengers + '\n' +
-            'Phone: ' + data.phone + '\n\n' +
-            'Please confirm my booking. Thank you!'
-          );
-          setTimeout(function() {
-            window.open('https://wa.me/917744046791?text=' + waText, '_blank');
-          }, 1500);
-
           document.getElementById('bookingForm').reset();
           document.getElementById('date').value = today;
         })
