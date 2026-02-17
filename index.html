@@ -1116,6 +1116,31 @@
     }
     .lang-option.active .lang-check { display: inline; }
 
+    /* ---- MOBILE QUICK LINKS ---- */
+    .mobile-quick-links {
+      display: none;
+      align-items: center;
+      gap: 8px;
+    }
+    .mql-btn {
+      padding: 6px 12px;
+      border-radius: 7px;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.15s;
+    }
+    .mql-btn:active { transform: scale(0.95); }
+    .mql-towing {
+      background: #D32F2F;
+      color: #fff;
+    }
+    .mql-safari {
+      background: #2E7D32;
+      color: #fff;
+    }
+
     /* ---- HAMBURGER MENU ---- */
     .hamburger {
       display: none;
@@ -1171,6 +1196,7 @@
 
     @media (max-width: 768px) {
       .hamburger { display: block; }
+      .mobile-quick-links { display: flex; }
       .nav-links {
         display: none;
         position: fixed;
@@ -1281,9 +1307,9 @@
       .footer-links { gap: 16px; }
       .footer-links a { font-size: 12px; }
 
-      .whatsapp-float { width: 54px; height: 54px; bottom: 18px; right: 16px; }
-      .whatsapp-float svg { width: 28px; height: 28px; }
-      .whatsapp-label { bottom: 78px; right: 14px; font-size: 11px; padding: 5px 10px; }
+      .whatsapp-float { width: 50px; height: 50px; bottom: 16px; right: 14px; }
+      .whatsapp-float svg { width: 26px; height: 26px; }
+      .whatsapp-label { display: none; }
     }
 
     @media (max-width: 380px) {
@@ -1373,12 +1399,17 @@
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="towing.html" data-i18n="nav_towing" style="color:var(--yellow)">Towing</a></li>
+      <li><a href="tipeshwar.html" style="color:#4CAF50;font-weight:700">&#128005; Tipeshwar Safari</a></li>
       <li><a href="#routes" data-i18n="nav_routes">Routes</a></li>
       <li><a href="#features" data-i18n="nav_why">Why Us</a></li>
       <li><a href="#how" data-i18n="nav_how">How It Works</a></li>
       <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
       <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
     </ul>
+    <div class="mobile-quick-links">
+      <a href="towing.html" class="mql-btn mql-towing">&#128680; Towing</a>
+      <a href="tipeshwar.html" class="mql-btn mql-safari">&#128005; Safari</a>
+    </div>
     <a href="#book" class="nav-cta" data-i18n="nav_book">Book a Ride</a>
     <div class="lang-switcher">
       <button class="lang-btn" id="langBtn" aria-label="Change language">
@@ -1596,26 +1627,26 @@
         <span class="route-cta" data-i18n="book_now">Book Now &#8594;</span>
       </a>
 
-      <a href="#book" class="route-card">
+      <a href="tipeshwar.html" class="route-card" style="border-color:#4CAF50; background:linear-gradient(135deg, rgba(46,125,50,0.03), rgba(255,193,7,0.03));">
         <div class="route-from-to">
-          <div class="route-dot from"></div>
+          <div class="route-dot from" style="background:#4CAF50;"></div>
           <div class="route-arrow"></div>
-          <div class="route-dot to"></div>
+          <div class="route-dot to" style="background:#FF8F00;"></div>
         </div>
-        <h3 data-i18n="r7_t">Pandharkawada to Tipeshwar Wildlife Sanctuary</h3>
+        <h3 data-i18n="r7_t">&#128005; Pandharkawada to Tipeshwar Wildlife Sanctuary</h3>
         <p class="route-meta" data-i18n="r7_d">Taxi to Tipeshwar Wildlife Sanctuary for tiger safari &amp; nature trips. Pickup &amp; drop service available.</p>
-        <span class="route-cta" data-i18n="book_now">Book Now &#8594;</span>
+        <span class="route-cta" style="background:rgba(46,125,50,0.12); color:#1B5E20;" data-i18n="book_now">Book Now &#8594;</span>
       </a>
 
-      <a href="#book" class="route-card">
+      <a href="tipeshwar.html" class="route-card" style="border-color:#4CAF50; background:linear-gradient(135deg, rgba(46,125,50,0.03), rgba(255,193,7,0.03));">
         <div class="route-from-to">
-          <div class="route-dot from"></div>
+          <div class="route-dot from" style="background:#4CAF50;"></div>
           <div class="route-arrow"></div>
-          <div class="route-dot to"></div>
+          <div class="route-dot to" style="background:#FF8F00;"></div>
         </div>
-        <h3 data-i18n="r8_t">Tipeshwar Wildlife Sanctuary to Nagpur Taxi</h3>
+        <h3 data-i18n="r8_t">&#128005; Tipeshwar Wildlife Sanctuary to Nagpur Taxi</h3>
         <p class="route-meta" data-i18n="r8_d">Return cab from Tipeshwar Wildlife Sanctuary to Nagpur. Comfortable ride after your wildlife safari.</p>
-        <span class="route-cta" data-i18n="book_now">Book Now &#8594;</span>
+        <span class="route-cta" style="background:rgba(46,125,50,0.12); color:#1B5E20;" data-i18n="book_now">Book Now &#8594;</span>
       </a>
 
     </div>
@@ -1830,6 +1861,8 @@
     <p>&copy; 2026 Jai Bhavani Taxi Services (PKD Cabs), Pandharkawada, Yavatmal. All rights reserved.</p>
     <div class="footer-links">
       <a href="#routes">Routes</a>
+      <a href="tipeshwar.html">Tipeshwar Taxi</a>
+      <a href="towing.html">Towing</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </div>
@@ -2132,28 +2165,78 @@
         start: document.getElementById("start").value,
         end: document.getElementById("end").value,
         date: document.getElementById("date").value,
-        phone: document.getElementById("phone").value
+        phone: document.getElementById("phone").value,
+        page: "Taxi",
+        browser: navigator.userAgent,
+        platform: navigator.platform || "",
+        language: navigator.language || "",
+        screen: screen.width + "x" + screen.height,
+        viewport: window.innerWidth + "x" + window.innerHeight,
+        referrer: document.referrer || "Direct",
+        url: window.location.href,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "",
+        online: navigator.onLine ? "Yes" : "No",
+        cookiesEnabled: navigator.cookieEnabled ? "Yes" : "No",
+        touchDevice: ("ontouchstart" in window) ? "Yes" : "No",
+        deviceMemory: navigator.deviceMemory ? navigator.deviceMemory + " GB" : "",
+        connection: (navigator.connection && navigator.connection.effectiveType) ? navigator.connection.effectiveType : "",
+        utmSource: new URLSearchParams(window.location.search).get("utm_source") || "",
+        utmMedium: new URLSearchParams(window.location.search).get("utm_medium") || "",
+        utmCampaign: new URLSearchParams(window.location.search).get("utm_campaign") || "",
+        latitude: "",
+        longitude: "",
+        locationAccuracy: ""
       };
 
-      fetch(scriptURL, {
-        method: "POST",
-        body: JSON.stringify(data)
-      })
-      .then(res => res.json())
-      .then(() => {
-        msg.textContent = T[lang].msg_success;
-        msg.className = "form-message success";
-        document.getElementById("bookingForm").reset();
-        document.getElementById('date').value = today;
-      })
-      .catch(() => {
-        msg.textContent = T[lang].msg_error;
-        msg.className = "form-message error";
-      })
-      .finally(() => {
-        btn.disabled = false;
-        btn.textContent = T[lang].form_btn;
-      });
+      function sendBooking() {
+        fetch(scriptURL, {
+          method: "POST",
+          body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(() => {
+          msg.textContent = T[lang].msg_success;
+          msg.className = "form-message success";
+
+          var waText = encodeURIComponent(
+            "Hi, I just booked a taxi on PKD Cabs.\n\n" +
+            "Pickup: " + data.start + "\n" +
+            "Drop: " + data.end + "\n" +
+            "Date: " + data.date + "\n" +
+            "Phone: " + data.phone + "\n\n" +
+            "Please confirm my booking. Thank you!"
+          );
+          setTimeout(function() {
+            window.open("https://wa.me/917744046791?text=" + waText, "_blank");
+          }, 1500);
+
+          document.getElementById("bookingForm").reset();
+          document.getElementById('date').value = today;
+        })
+        .catch(() => {
+          msg.textContent = T[lang].msg_error;
+          msg.className = "form-message error";
+        })
+        .finally(() => {
+          btn.disabled = false;
+          btn.textContent = T[lang].form_btn;
+        });
+      }
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function(pos) {
+            data.latitude = pos.coords.latitude.toFixed(6);
+            data.longitude = pos.coords.longitude.toFixed(6);
+            data.locationAccuracy = Math.round(pos.coords.accuracy) + "m";
+            sendBooking();
+          },
+          function() { sendBooking(); },
+          { timeout: 5000, maximumAge: 300000 }
+        );
+      } else {
+        sendBooking();
+      }
     });
 
     // ========== FAQ ACCORDION ==========
