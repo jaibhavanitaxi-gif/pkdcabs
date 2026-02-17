@@ -326,16 +326,160 @@
     .lang-opt:hover { background: var(--gray-bg); }
     .lang-opt.active { background: rgba(211,47,47,0.08); font-weight: 700; }
 
+    /* MOBILE QUICK LINKS */
+    .mobile-quick-links {
+      display: none;
+      align-items: center;
+      gap: 8px;
+    }
+    .mql-btn {
+      padding: 6px 12px;
+      border-radius: 7px;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.15s;
+    }
+    .mql-btn:active { transform: scale(0.95); }
+    .mql-taxi {
+      background: var(--yellow);
+      color: var(--dark);
+    }
+    .mql-safari {
+      background: #2E7D32;
+      color: #fff;
+    }
+
+    /* HAMBURGER MENU */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      z-index: 201;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2.5px;
+      background: var(--white);
+      border-radius: 2px;
+      margin: 5px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .coverage-grid { flex-direction: column; }
       .coverage-list { flex: none; }
+      .hero { padding: 50px 5% 40px; min-height: auto; }
+      .hero h1 { font-size: clamp(24px, 5vw, 40px); }
+      .hero p { font-size: 16px; }
+      .hero-call { font-size: 18px; padding: 16px 30px; }
+      .section-header h2 { font-size: 24px; }
+      .section-header p { font-size: 14px; }
+      .services { padding: 40px 5%; }
+      .faq-section { padding: 40px 5%; }
+      .seo-block { padding: 40px 5%; }
+      .cta { padding: 40px 5%; }
+      .cta h2 { font-size: 24px; }
+      .cta-call { font-size: 17px; padding: 14px 32px; }
     }
+
+    @media (max-width: 768px) {
+      .hamburger { display: block; }
+      .mobile-quick-links { display: flex; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--darker);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        z-index: 200;
+        padding: 80px 20px 40px;
+        list-style: none;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-links li { width: 100%; text-align: center; }
+      .nav-links a {
+        display: block;
+        padding: 16px 0;
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--white);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .nav-links a:hover { color: var(--yellow); }
+      .nav-call { display: none; }
+      .lang-sw { margin-left: 0; margin-right: 8px; }
+    }
+
     @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .hero-call { font-size: 18px; padding: 16px 28px; }
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer { flex-direction: column; text-align: center; }
+      .topbar { font-size: 12px; padding: 8px 4%; }
+      .navbar { padding: 10px 4%; }
+      .hero { padding: 36px 4% 28px; }
+      .hero-icon { font-size: 48px; }
+      .hero h1 { font-size: clamp(22px, 6vw, 32px); margin-bottom: 12px; }
+      .hero p { font-size: 14px; margin-bottom: 24px; }
+      .hero-call { font-size: 16px; padding: 14px 24px; border-radius: 10px; }
+      .hero-wa { font-size: 14px; padding: 11px 24px; }
+
+      .services { padding: 32px 4%; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .service-card { padding: 20px 14px; }
+      .service-card .svc-icon { font-size: 28px; margin-bottom: 8px; }
+      .service-card h3 { font-size: 13px; margin-bottom: 4px; }
+      .service-card p { font-size: 11px; line-height: 1.4; }
+
+      .coverage { padding: 32px 4%; }
+      .coverage-map { min-height: 200px; }
+      .coverage-list h3 { font-size: 17px; }
+      .cov-item span { font-size: 13px; }
+
+      .faq-section { padding: 32px 4%; }
+      .faq-question { padding: 14px 16px; font-size: 14px; gap: 8px; }
+      .faq-answer-inner { padding: 0 16px 14px; font-size: 13px; }
+
+      .seo-block { padding: 28px 4%; }
+      .seo-inner h2 { font-size: 20px; }
+      .seo-inner p { font-size: 13px; }
+
+      .cta { padding: 32px 4%; }
+      .cta h2 { font-size: 20px; }
+      .cta p { font-size: 13px; }
+      .cta-call { font-size: 16px; padding: 13px 28px; border-radius: 8px; }
+      .cta-link { font-size: 13px; }
+
+      .footer { flex-direction: column; text-align: center; padding: 20px 4%; }
+      .footer p { font-size: 12px; }
+      .footer a { font-size: 12px; }
+
+      .wa-float { width: 50px; height: 50px; bottom: 16px; right: 14px; }
+      .wa-float svg { width: 26px; height: 26px; }
+    }
+
+    @media (max-width: 380px) {
+      .hero h1 { font-size: 20px; }
+      .hero-call { font-size: 14px; padding: 12px 20px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { padding: 22px 18px; }
+      .qc-modal { padding: 28px 18px 22px; }
+      .qc-title { font-size: 18px; }
+      .qc-subtitle { font-size: 12px; }
+      .qc-btn { font-size: 14px; padding: 13px; }
     }
 
     /* ===== QUICK CONTACT POPUP ===== */
@@ -415,12 +559,17 @@
       <div class="logo-icon">&#128690;</div>
       <div class="logo-text">PKD<span>Towing</span></div>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#services">Services</a></li>
       <li><a href="#coverage">Coverage</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="index.html">Taxi Booking</a></li>
+      <li><a href="tipeshwar.html">Tipeshwar Safari</a></li>
     </ul>
+    <div class="mobile-quick-links">
+      <a href="index.html" class="mql-btn mql-taxi">&#128662; Taxi</a>
+      <a href="tipeshwar.html" class="mql-btn mql-safari">&#128005; Safari</a>
+    </div>
     <a href="tel:+917744046791" class="nav-call">&#128222; +91 7744046791</a>
     <div class="lang-sw">
       <button class="lang-btn" id="langBtn">&#127470;&#127475; <span id="langLabel">EN</span> &#9660;</button>
@@ -430,6 +579,9 @@
         <button class="lang-opt" data-lang="mr">&#2350;&#2352;&#2366;&#2336;&#2368; (Marathi)</button>
       </div>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- HERO -->
@@ -708,6 +860,26 @@
       document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
       if (!open) item.classList.add('open');
     }));
+
+    // ========== HAMBURGER MENU ==========
+    (function() {
+      var hamburger = document.getElementById('hamburger');
+      var navLinks = document.getElementById('navLinks');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('open');
+          document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+        });
+        navLinks.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('open');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+    })();
 
     // ========== QUICK CONTACT POPUP ==========
     const qcOverlay = document.getElementById('qcOverlay');
