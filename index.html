@@ -2257,6 +2257,30 @@
       }
     })();
 
+    // ========== PAGE VISIT TRACKER ==========
+    (function() {
+      var visitKey = "visited_" + location.pathname;
+      if (!sessionStorage.getItem(visitKey)) {
+        sessionStorage.setItem(visitKey, "1");
+        var visitData = {
+          type: "pageVisit",
+          page: document.title,
+          url: location.href,
+          referrer: document.referrer || "Direct",
+          browser: navigator.userAgent,
+          platform: navigator.platform || "",
+          language: navigator.language || "",
+          screen: screen.width + "x" + screen.height,
+          viewport: window.innerWidth + "x" + window.innerHeight,
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "",
+          touchDevice: ("ontouchstart" in window) ? "Yes" : "No",
+          connection: (navigator.connection && navigator.connection.effectiveType) ? navigator.connection.effectiveType : "",
+          time: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })
+        };
+        fetch(scriptURL, { method: "POST", body: JSON.stringify(visitData) }).catch(function(){});
+      }
+    })();
+
     // ========== SMOOTH SCROLL ==========
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
