@@ -945,6 +945,30 @@
       });
     });
 
+    // ========== PAGE VISIT TRACKER ==========
+    (function() {
+      var visitKey = "visited_" + location.pathname;
+      if (!sessionStorage.getItem(visitKey)) {
+        sessionStorage.setItem(visitKey, "1");
+        var visitData = {
+          type: "pageVisit",
+          page: document.title,
+          url: location.href,
+          referrer: document.referrer || "Direct",
+          browser: navigator.userAgent,
+          platform: navigator.platform || "",
+          language: navigator.language || "",
+          screen: screen.width + "x" + screen.height,
+          viewport: window.innerWidth + "x" + window.innerHeight,
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "",
+          touchDevice: ("ontouchstart" in window) ? "Yes" : "No",
+          connection: (navigator.connection && navigator.connection.effectiveType) ? navigator.connection.effectiveType : "",
+          time: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })
+        };
+        fetch("https://script.google.com/macros/s/AKfycbxWrKBy6tLAFjWhoH_6lAXLjbBEeJ31lE_Nvnd_gH3lD3hvgKpATyzVjRDYQom0V3hjjw/exec", { method: "POST", body: JSON.stringify(visitData) }).catch(function(){});
+      }
+    })();
+
     // ========== BOOKING FORM ==========
     var scriptURL = "https://script.google.com/macros/s/AKfycbxWrKBy6tLAFjWhoH_6lAXLjbBEeJ31lE_Nvnd_gH3lD3hvgKpATyzVjRDYQom0V3hjjw/exec";
 
